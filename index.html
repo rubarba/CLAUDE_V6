@@ -51,12 +51,17 @@ main{max-width:38rem;margin:0 auto;padding:0 7vw 30vh}
 .cap-meta span:not(:first-child){color:var(--papel-fraco)}
 .numeral{font-family:var(--caps);font-size:clamp(3rem,7vw,5rem);line-height:1;color:var(--linha);display:block}
 h2{font-family:var(--caps);font-weight:500;font-size:clamp(1.8rem,3.6vw,2.6rem);margin:.4rem 0 3rem}
-.cena{margin:0 0 4.5rem}
-.cena-cab{display:flex;align-items:baseline;gap:.85rem;margin:0 0 1.8rem;padding-top:1.2rem;
-  border-top:1px solid var(--linha-fraca)}
-.cena-n{font-family:var(--caps);font-size:15px;color:var(--lanterna);font-weight:700}
-.cena-t{font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--papel-fraco)}
-.cena:first-of-type .cena-cab{border-top:0;padding-top:0}
+.cena{margin:0 0 5rem}
+/* limiar: o cabeçalho de cena tem altura própria — é a pista de aterragem do crossfade */
+.cena-cab{min-height:52svh;display:flex;flex-direction:column;justify-content:center;
+  margin:0 0 2.6rem;position:relative}
+.cena-cab:before{content:"";position:absolute;top:0;left:0;width:2.5rem;height:1px;background:var(--linha-fraca)}
+.cena-n{font-family:var(--caps);font-weight:700;font-size:clamp(3.2rem,13vw,6rem);line-height:.9;
+  color:var(--linha);display:block;margin-bottom:1.1rem}
+.cena-t{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--lanterna);display:block}
+.cena:first-of-type .cena-cab{min-height:34svh}
+.cena:first-of-type .cena-cab:before{display:none}
 .cena p{margin:0 0 1.3rem}
 .ficha{background:none;border:0;padding:0;margin:0;cursor:pointer;font:inherit;color:var(--papel);
   border-bottom:1px solid var(--lanterna)}
@@ -125,7 +130,7 @@ input[type=range]::-moz-range-thumb{width:12px;height:12px;border:0;border-radiu
 <body>
 
 <section class="hero">
-  <div class="eyebrow">Protótipo de som · sequência 1</div>
+  <div class="eyebrow">Protótipo de som · sequência 1 · v2</div>
   <h1>Lisboa, embarque, Atlântico</h1>
   <p>Quatro cenas do Capítulo II. O scroll é o controlador. Não há ficheiros de áudio — as paisagens são sintetizadas no browser, para se testar a mecânica antes de existir sound design.</p>
   <button class="convite" id="convite"><span class="pt"></span><span id="conviteTxt">Ligar o som</span></button>
@@ -210,16 +215,18 @@ input[type=range]::-moz-range-thumb{width:12px;height:12px;border:0;border-radiu
   <div class="bnc">
     <div class="fila"><span class="rot">Linha</span>
       <span class="segs" id="segLinha">
-        <button data-v="0.35">35%</button><button data-v="0.40" class="on">40%</button><button data-v="0.45">45%</button>
+        <button data-v="0.35">35%</button><button data-v="0.40">40%</button><button data-v="0.45" class="on">45%</button>
       </span></div>
     <div class="fila"><span class="rot">Ver linha</span>
       <span class="segs" id="segVer"><button data-v="0">Não</button><button data-v="1">Sim</button></span></div>
-    <div><div class="fila"><span class="rot">Crossfade</span><span class="val" id="vXf">60% ecrã</span></div>
-      <input type="range" id="xf" min="20" max="110" value="60"></div>
+    <div><div class="fila"><span class="rot">Crossfade</span><span class="val" id="vXf">45% ecrã</span></div>
+      <input type="range" id="xf" min="20" max="110" value="45"></div>
     <div><div class="fila"><span class="rot">Degradação</span><span class="val" id="vDeg">0.15</span></div>
       <input type="range" id="deg" min="0" max="100" value="15"></div>
     <div><div class="fila"><span class="rot">Volume</span><span class="val" id="vVol">70</span></div>
       <input type="range" id="vol" min="0" max="100" value="70"></div>
+    <div class="fila"><span class="rot">Saída</span>
+      <span class="segs" id="segMono"><button data-v="0" class="on">Estéreo</button><button data-v="1">Mono</button></span></div>
     <div class="fila"><span class="rot">Overlay</span>
       <span class="segs"><button id="btMapa">Abrir mapa</button></span></div>
     <div class="med" id="medidores"></div>
@@ -240,8 +247,9 @@ input[type=range]::-moz-range-thumb{width:12px;height:12px;border:0;border-radiu
    o resto do motor não muda.
    ========================================================== */
 var ctx=null, mestre=null, seco=null, molhado=null, verb=null, ligado=false;
-var CFG={linha:0.40, xf:0.60, deg:0.15, vol:0.70};
+var CFG={linha:0.45, xf:0.45, deg:0.15, vol:0.70};
 var AMBS={}, BLOCOS=[], overlayAberto=false;
+var monoIn=null, monoOut=null, saidaLim=null, mono=false;
 
 /* -------- ruído -------- */
 function bufRuido(seg,castanho){
@@ -261,6 +269,18 @@ function lfo(freq,min,max,alvo){
   var off=ctx.createConstantSource(); off.offset.value=(max+min)/2;
   o.connect(g); g.connect(alvo); off.connect(alvo);
   o.start(); off.start(); return o;
+}
+/* posição fixa para um transitório. Nunca para uma cama. */
+function panEm(out,p){
+  if(!ctx.createStereoPanner) return out;
+  var n=ctx.createStereoPanner(); n.pan.value=Math.max(-1,Math.min(1,p));
+  n.connect(out); return n;
+}
+/* deriva lenta — o navio a jogar, não um efeito */
+function deriva(out,freq,amp){
+  if(!ctx.createStereoPanner) return out;
+  var n=ctx.createStereoPanner(); n.pan.value=0; lfo(freq,-amp,amp,n.pan);
+  n.connect(out); return n;
 }
 function ir(seg,decai){
   var n=Math.floor(ctx.sampleRate*seg), b=ctx.createBuffer(2,n,ctx.sampleRate);
@@ -318,7 +338,7 @@ function construir(){
     var self=this;
     this.evento(4,10,function(w){ // martelo no cais
       var b=ctx.createBiquadFilter(); b.type='bandpass'; b.Q.value=9; b.frequency.value=680+Math.random()*500;
-      var e=envBurst(out,0.28,0.30*w); b.connect(e);
+      var e=envBurst(panEm(out,-0.75+Math.random()*1.5),0.28,0.30*w); b.connect(e);
       var s=fonteRuido(wht); s.connect(b); setTimeout(function(){s.stop();},400);
     });
     this.evento(7,16,function(w){ // gaivota
@@ -326,7 +346,7 @@ function construir(){
       var t=ctx.currentTime; b.frequency.setValueAtTime(1500,t);
       b.frequency.exponentialRampToValueAtTime(2600,t+0.18);
       b.frequency.exponentialRampToValueAtTime(1200,t+0.5);
-      var e=envBurst(out,0.55,0.14*w); b.connect(e);
+      var e=envBurst(panEm(out,-0.85+Math.random()*1.7),0.55,0.14*w); b.connect(e);
       var s=fonteRuido(wht); s.connect(b); setTimeout(function(){s.stop();},700);
     });
     this.evento(28,55,function(w){ // sino dos Jerónimos, longe
@@ -334,8 +354,9 @@ function construir(){
       e.gain.setValueAtTime(0.0001,t);
       e.gain.exponentialRampToValueAtTime(0.09*w,t+0.02);
       e.gain.exponentialRampToValueAtTime(0.0001,t+4.5);
-      var lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=900;
-      e.connect(lp); lp.connect(out);
+      var lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=560; // longe = escuro
+      var wetS=ctx.createGain(); wetS.gain.value=0.5;                                // longe = molhado
+      e.connect(lp); lp.connect(panEm(out,-0.5)); lp.connect(wetS); wetS.connect(verb);
       [1,2.76,5.4].forEach(function(r,i){
         var o=ctx.createOscillator(); o.type='sine'; o.frequency.value=196*r;
         var og=ctx.createGain(); og.gain.value=1/(i+1.6);
@@ -357,12 +378,12 @@ function construir(){
       var t=ctx.currentTime, d=0.9+Math.random()*0.8;
       b.frequency.setValueAtTime(150+Math.random()*90,t);
       b.frequency.exponentialRampToValueAtTime(95,t+d);
-      var e=envBurst(out,d,0.5*w); b.connect(e);
+      var e=envBurst(panEm(out,-0.6+Math.random()*1.2),d,0.5*w); b.connect(e);
       var s=fonteRuido(brw); s.connect(b); setTimeout(function(){s.stop();},(d+0.2)*1000);
     });
     this.evento(9,20,function(w){ // corrente / balde no porão
       var b=ctx.createBiquadFilter(); b.type='bandpass'; b.Q.value=6; b.frequency.value=250+Math.random()*300;
-      var e=envBurst(out,0.4,0.18*w); b.connect(e);
+      var e=envBurst(panEm(out,-0.8+Math.random()*1.6),0.4,0.18*w); b.connect(e);
       var s=fonteRuido(wht); s.connect(b); setTimeout(function(){s.stop();},500);
     });
   });
@@ -380,7 +401,7 @@ function construir(){
     fonteRuido(brw).connect(lo); lo.connect(g3); g3.connect(out);
     this.evento(8,18,function(w){ // vaga contra o casco
       var lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=180;
-      var e=envBurst(out,1.4,0.4*w); lp.connect(e);
+      var e=envBurst(panEm(out,-0.4+Math.random()*0.8),1.4,0.4*w); lp.connect(e);
       var s=fonteRuido(brw); s.connect(lp); setTimeout(function(){s.stop();},1600);
     });
   });
@@ -393,7 +414,7 @@ function construir(){
     var b=ctx.createBiquadFilter(); b.type='bandpass'; b.Q.value=4.5;
     lfo(0.16,2400,3800,b.frequency);
     var g2=ctx.createGain(); g2.gain.value=0.12; lfo(0.19,0.04,0.2,g2.gain);
-    fonteRuido(wht).connect(b); b.connect(g2); g2.connect(out);
+    fonteRuido(wht).connect(b); b.connect(g2); g2.connect(deriva(out,0.03,0.45));
     var lo=ctx.createBiquadFilter(); lo.type='lowpass'; lo.frequency.value=130;
     var g3=ctx.createGain(); g3.gain.value=0.8; lfo(0.13,0.45,1,g3.gain);
     fonteRuido(brw).connect(lo); lo.connect(g3); g3.connect(out);
@@ -402,7 +423,7 @@ function construir(){
       var t=ctx.currentTime, d=1.2+Math.random()*1.1;
       bq.frequency.setValueAtTime(130+Math.random()*70,t);
       bq.frequency.exponentialRampToValueAtTime(72,t+d);
-      var e=envBurst(out,d,0.75*w); bq.connect(e);
+      var e=envBurst(panEm(out,-0.9+Math.random()*1.8),d,0.75*w); bq.connect(e);
       var s=fonteRuido(brw); s.connect(bq); setTimeout(function(){s.stop();},(d+0.2)*1000);
     });
   });
@@ -462,6 +483,11 @@ function arrancar(){
   mestre=ctx.createGain(); mestre.gain.value=0;
   var lim=ctx.createDynamicsCompressor();
   lim.threshold.value=-8; lim.knee.value=6; lim.ratio.value=8; lim.attack.value=0.004; lim.release.value=0.25;
+  // prova de mono: metade dos leitores ouve isto pelo altifalante do telemovel
+  var sp=ctx.createChannelSplitter(2), somaM=ctx.createGain(), mg=ctx.createChannelMerger(2);
+  somaM.gain.value=0.5; sp.connect(somaM,0); sp.connect(somaM,1);
+  somaM.connect(mg,0,0); somaM.connect(mg,0,1);
+  monoIn=sp; monoOut=mg; saidaLim=lim;
   mestre.connect(lim); lim.connect(ctx.destination);
   seco=ctx.createGain(); seco.gain.value=1; seco.connect(mestre);
   molhado=ctx.createGain(); molhado.gain.value=0.16; molhado.connect(mestre);
@@ -546,7 +572,24 @@ function segs(id,fn){
     b.classList.add('on'); fn(parseFloat(b.dataset.v));
   });
 }
-segs('segLinha',function(v){ CFG.linha=v; posLinha(); if(ctx)actualizar(); });
+/* mudar a linha de leitura em rampa — saltar de 35 para 45 seria um corte */
+var animLinha=null;
+segs('segLinha',function(v){
+  var de=CFG.linha, t0=performance.now();
+  cancelAnimationFrame(animLinha);
+  (function passo(t){
+    var k=Math.min(1,(t-t0)/700), e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+    CFG.linha=de+(v-de)*e; posLinha(); if(ctx)actualizar();
+    if(k<1) animLinha=requestAnimationFrame(passo);
+  })(t0);
+});
+segs('segMono',function(v){
+  mono=(v===1); if(!ctx) return;
+  try{ mestre.disconnect(); }catch(e){}
+  try{ monoOut.disconnect(); }catch(e){}
+  if(mono){ mestre.connect(monoIn); monoOut.connect(saidaLim); }
+  else { mestre.connect(saidaLim); }
+});
 segs('segVer',function(v){ document.getElementById('linhaLeitura').classList.toggle('ver',v===1); });
 function posLinha(){
   var l=document.getElementById('linhaLeitura');
