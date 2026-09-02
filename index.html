@@ -1059,6 +1059,27 @@ body.mapa-memoria .marca-porto.aceso{cursor:pointer;
 
 
 
+/* ---------- passagens e destaque do que é novo ---------- */
+.passagem{margin:0 0 4rem;padding:1.5rem 0 1.5rem 1.3rem;border-left:2px solid var(--jade);
+  max-width:34rem;position:relative}
+.passagem p{font-family:var(--serif);font-size:.97em;color:var(--papel-fraco);
+  line-height:1.75;margin:0 0 .9rem}
+.passagem p:last-child{margin-bottom:0}
+
+.cena.novo p, .cena.novo blockquote, .cena.novo .dialogo{color:#E8CF9B}
+.cena.novo .cena-n, .cena.novo .cena-t{color:var(--lacre)}
+.cena.novo .cena-cab{display:flex;align-items:center;flex-wrap:wrap;gap:.85rem}
+.cena.novo .cena-cab:after{content:"novo";font-family:var(--mono);font-size:8.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--lacre);
+  border:1px solid var(--lacre);padding:.22rem .5rem;white-space:nowrap;opacity:.9}
+.passagem.novo{border-left-color:var(--lacre)}
+.passagem.novo p{color:#E8CF9B}
+.passagem.novo:before{content:"passagem";position:absolute;top:-.55rem;left:1.3rem;
+  background:var(--abismo);padding:0 .5rem;font-family:var(--mono);font-size:8.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--lacre)}
+
+
+
 /* ================== NOTAS POR SELECÇÃO ================== */
 mark.marca{background:rgba(227,164,76,.16);color:inherit;border-bottom:1px solid var(--lanterna);
   cursor:pointer;padding:0 .05em;border-radius:2px}
@@ -1117,6 +1138,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   border-left:2px solid var(--linha-fraca);padding-left:.7rem}
 .n-txt{font-size:.95rem;white-space:pre-wrap}
 #vazio{color:var(--papel-fraco);font-family:var(--mono);font-size:11px;letter-spacing:.1em;line-height:2.2}
+
 
 
 
