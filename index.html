@@ -1080,6 +1080,21 @@ body.mapa-memoria .marca-porto.aceso{cursor:pointer;
 
 
 
+/* ---------- desktop: mais largura útil, letra maior ---------- */
+@media (min-width:1181px){
+  body{font-size:calc(20px * var(--esc));line-height:1.74}
+  .cap{max-width:68ch}
+}
+@media (min-width:1500px){
+  body{font-size:calc(21px * var(--esc))}
+  .cap{max-width:70ch}
+}
+@media (min-width:1900px){
+  body{font-size:calc(22px * var(--esc))}
+}
+
+
+
 /* ================== NOTAS POR SELECÇÃO ================== */
 mark.marca{background:rgba(227,164,76,.16);color:inherit;border-bottom:1px solid var(--lanterna);
   cursor:pointer;padding:0 .05em;border-radius:2px}
@@ -1142,6 +1157,9 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
 
 
 
+
+
+
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -1187,7 +1205,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   </div>
 </section>
 
-<section class="cap" data-cap="1" data-rom="I" data-ord="1" data-ano="c.1523" data-local="MONTEMOR → MELIDES" data-coord="38°N 09°O" data-x="100" data-y="160" data-prog="0.091" data-k="4.0" data-cx="100" data-cy="160">
+<section class="cap" data-cap="1" data-rom="I" data-ord="1" data-ano="c.1523" data-local="MONTEMOR → MELIDES" data-coord="38°N 09°O" data-x="100" data-y="160" data-prog="0.083" data-k="4.0" data-cx="100" data-cy="160">
   <div class="cap-meta"><span>Capítulo I</span><span>c.1523</span><span>Montemor → Melides</span></div>
   <span class="numeral">I</span>
   <h2>Corsários</h2>
@@ -1339,7 +1357,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   </div>
 </section>
 
-<section class="cap" data-cap="2" data-rom="" data-ord="1" data-ano="—" data-local="ACREDITA SE QUISERES" data-coord="" data-x="100" data-y="160" data-prog="0.182" data-k="1.0" data-cx="500" data-cy="317">
+<section class="cap" data-cap="2" data-rom="" data-ord="1" data-ano="—" data-local="ACREDITA SE QUISERES" data-coord="" data-x="100" data-y="160" data-prog="0.167" data-k="1.0" data-cx="500" data-cy="317">
   <h2 class="interstitium">Acredita se quiseres</h2>
   <div class="cena">
   </div>
@@ -1391,7 +1409,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   </div>
 </section>
 
-<section class="cap" data-cap="3" data-rom="II" data-ord="2" data-ano="1537" data-local="LISBOA → DIU" data-coord="20°N 70°E" data-x="547" data-y="271" data-prog="0.273" data-k="1.3" data-cx="330" data-cy="250">
+<section class="cap" data-cap="3" data-rom="II" data-ord="2" data-ano="1537" data-local="LISBOA → DIU" data-coord="20°N 70°E" data-x="547" data-y="271" data-prog="0.25" data-k="1.3" data-cx="330" data-cy="250">
   <div class="cap-meta"><span>Capítulo II</span><span>1537</span><span>Lisboa → Diu</span></div>
   <span class="numeral">II</span>
   <h2>Parte sem nada a perder</h2>
@@ -1535,79 +1553,86 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   </div>
 </section>
 
-<section class="cap" data-cap="4" data-rom="III" data-ord="3" data-ano="1539" data-local="MALACA · SAMATRA" data-coord="02°N 102°E" data-x="722" data-y="377" data-prog="0.364" data-k="3.0" data-cx="710" data-cy="372">
-  <div class="cap-meta"><span>Capítulo III</span><span>1539</span><span>Malaca · Samatra</span></div>
+<section class="cap" data-cap="4" data-rom="III" data-ord="3" data-ano="1538" data-local="MAR VERMELHO · MOCA · ORMUZ" data-coord="13°N 43°E" data-x="393" data-y="314" data-prog="0.333" data-k="3.0" data-cx="420" data-cy="300">
+  <div class="cap-meta"><span>Capítulo III</span><span>1538</span><span>Mar Vermelho · Moca · Ormuz</span></div>
   <span class="numeral">III</span>
-  <h2>Diplomata ou mercador?</h2>
-  <div class="cap-sub">1538–1539 · Mar Vermelho · Moca · Ormuz · Malaca · Samatra</div>
+  <h2>Vendido a troco de tâmaras</h2>
+  <div class="cap-sub">1537–1538 · Diu · Mar Vermelho · Etiópia · Moca · Ormuz</div>
   <div class="cena">
+    <p># Capítulo III — Diplomata ou mercador?</p>
+    <p class="nota-fim"><em>1538–1539 · Mar Vermelho · Moca · Ormuz · Malaca · Samatra</em></p>
+  </div>
+  <div class="passagem novo">
+    <p>Dezassete dias depois de desembarcar em <button class="ficha" data-f="diu">Diu</button> está outra vez em cima de água. Vão duas fustas ao Mar Vermelho ver se é verdade que os turcos aí vêm, e o capitão de uma delas é amigo dele e diz-lhe que aquilo dá dinheiro depressa — a única coisa que ele quer ouvir. Param em <button class="ficha" data-f="socotora">Socotorá</button> a fazer água e compram comida a cristãos de São Tomé, que ali estão desde antes de haver Portugal. Depois sobem a serra de mula, cinco léguas por dia, a dormir em mosteiros.</p>
   </div>
   <div class="cena novo">
-    <div class="cena-cab"><span class="cena-n">1</span><span class="cena-t">Quarenta portugueses na Etiópia</span></div>
+    <div class="cena-cab"><span class="cena-n">1</span><span class="cena-t">Quarenta homens numa montanha</span></div>
     <span class="cena-onde">Outubro de 1537 · Gileytor, montanhas da Etiópia</span>
-    <p class="abre">Dezassete dias depois de desembarcar em <button class="ficha" data-f="diu">Diu</button> já está outra vez em cima de água.</p>
-    <p>Estão a armar duas <button class="ficha" data-f="fustas">fustas</button> para ir ao Mar Vermelho ver se é verdade que os turcos vêm aí. O capitão de uma delas é amigo dele e diz-lhe que aquilo dá dinheiro depressa, que é a única coisa que ele quer ouvir naquele momento.</p>
-    <p>Embarca.</p>
-    <p>A viagem é o que costuma ser. Passam ao largo de umas ilhas onde se dão por perdidos, param em Socotorá para fazer água, e compram comida a cristãos da terra — cristãos de São Tomé, que ali estão desde muito antes de existir Portugal.</p>
-    <p>Depois entram no Mar Vermelho, e é aqui que a coisa fica estranha.</p>
-    <p>Vão a terra do <strong>Preste João</strong>.</p>
-    <p>É preciso explicar o que isto é. Durante quatrocentos anos a Europa acreditou que existia, algures para lá dos mouros, um rei cristão poderosíssimo que um dia viria pelas costas do Islão e resolveria tudo. Escreveram-se cartas dele que ninguém escreveu. Puseram-no na Índia, na Ásia central, em África, conforme o século.</p>
-    <p>E há uma coisa que não se conta muito: <strong>estava lá mesmo.</strong> Não como o imaginaram — sem exércitos infinitos e sem tesouros de fábula —, mas havia de facto um império cristão na Etiópia, antigo, com mosteiros e uma corte, e os portugueses já lá tinham gente.</p>
-    <p>Quarenta homens, exactamente.</p>
-    <p>Estão numa fortaleza chamada Gileytor, a guardar a mãe do imperador, e estão ali há três anos por ordem do governador da Índia. O chefe chama-se Henrique Barbosa.</p>
-    <p>O Fernão é um dos quatro que sobem lá acima a levar-lhes uma carta.</p>
-    <p>Vai de mula, cinco léguas por dia, por campos de trigo. Dorme em mosteiros. Num deles aparece um filho do governador da Etiópia, dezassete anos, montado num cavalo com arreios de veludo roxo que lhe mandaram de Goa, e trinta mulas atrás.</p>
-    <p>Depois de três dias chega a Gileytor e os quarenta portugueses recebem-nos a chorar.</p>
-    <p>E é aqui que ele escreve a frase que interessa. Diz que aqueles homens estavam muito bem ali, que eram senhores absolutos de toda a terra — e que mesmo assim não estavam satisfeitos,</p>
+    <p class="abre">Há quarenta portugueses no cimo de uma montanha em África, e estão ali há três anos.</p>
+    <p>Foram mandados pelo governador da Índia para guardar a mãe do imperador da Etiópia — o <button class="ficha" data-f="preste-joao">Preste João</button>, o rei cristão que a Europa passou quatro séculos a imaginar e que, ao contrário do que toda a gente esperava, existia mesmo.</p>
+    <p>O chefe deles chama-se <button class="ficha" data-f="henrique-barbosa">Henrique Barbosa</button>. Mandam em tudo o que se vê dali. Ninguém lhes diz que não.</p>
+    <p>E quando os quatro portugueses que vêm da Índia chegam a <button class="ficha" data-f="gileytor">Gileytor</button> com uma carta, os quarenta recebem-nos a chorar.</p>
+    <p>Ele escreve porquê, numa linha:</p>
     <blockquote>por ser aquilo desterro e não pátria sua</blockquote>
     <p>Quarenta homens a mandar num sítio onde não querem estar.</p>
-    <p>No domingo levam-no a ver a mãe do imperador.</p>
-    <p>Está na capela, à espera da missa. Põem-se de joelhos e beijam-lhe o leque que ela tem na mão, que é o que ali se faz e que os outros portugueses lhes ensinaram no caminho.</p>
-    <p>Ela recebe-os com a boca cheia de riso e diz-lhes que a chegada deles é como o orvalho da noite num jardim seco.</p>
-    <p>E depois faz perguntas, durante muito tempo, de uma mulher que está no cimo de umas montanhas em África e quer saber como é o resto:</p>
-    <p>Como se chama o Papa. Quantos reis há na Cristandade. Se algum deles já foi a Jerusalém. <strong>Porque é que os príncipes cristãos são tão descuidados</strong> e não acabam de vez com o turco. Que poder é que o rei de Portugal tem mesmo na Índia, e quantas fortalezas, e onde ficam.</p>
-    <p>Manda-os sentar em esteiras a quatro ou cinco passos dela e ouve as respostas.</p>
-    <p>Nove dias depois vão-se despedir. Ela diz que lhes pesa irem tão cedo, deseja-lhes que sejam recebidos na Índia como Salomão recebeu a rainha de Sabá, e manda dar-lhes vinte <button class="trad" data-g="">oqueás</button> de ouro — duzentos e quarenta cruzados, mais dinheiro do que aquele homem alguma vez tinha tido nas mãos.</p>
-    <p>Manda também vinte homens armados para os levarem em segurança até ao porto.</p>
+    <p>No domingo levam-no a ver a velha.</p>
+    <p>Está sentada na capela à espera da missa. Ajoelham-se e beijam-lhe o leque que tem na mão, que é o que ali se faz e que os outros portugueses lhes explicaram no caminho. Ela ri-se e diz que a chegada deles é como o orvalho da noite num jardim seco.</p>
+    <p>Depois manda-os sentar em esteiras e começa a perguntar.</p>
+    <p>Como se chama o Papa. Quantos reis há na Cristandade. Se algum deles já foi a Jerusalém.</p>
+    <p>E, a certa altura, esta:</p>
+    <p><strong>Porque é que os príncipes cristãos são tão descuidados que não acabam de vez com o turco?</strong></p>
+    <p>É uma senhora idosa no alto de uma serra, a duas semanas de qualquer coisa, e está mais bem informada sobre o mundo do que a maioria dos homens que ele vai encontrar nos próximos vinte anos.</p>
+    <p>Quer saber quantas fortalezas tem o rei de Portugal na Índia e onde ficam. Não pergunta por curiosidade.</p>
+    <p>Ouve tudo. Fica com os quatro nove dias.</p>
+    <p>Quando se despedem, manda dar-lhes vinte <button class="trad" data-g="">oqueás</button> de ouro — duzentos e quarenta cruzados, mais dinheiro do que aquele homem alguma vez teve nas mãos.</p>
+    <p>E manda vinte soldados para os levarem em segurança até ao porto.</p>
     <p>É a última vez na vida dele que alguém o trata assim.</p>
+  </div>
+  <div class="passagem novo">
+    <p>Descem outra vez ao porto de <button class="ficha" data-f="arquico">Arquico</button> e saem numa quarta-feira, uma hora antes de amanhecer, com bom vento. Levam o ouro, uma carta da velha para o governador da Índia, e um bispo etíope que ia a Roma e a Jerusalém e que não vai chegar a nenhum dos dois.</p>
   </div>
   <div class="cena novo">
     <div class="cena-cab"><span class="cena-n">2</span><span class="cena-t">Três barcos e um pátio</span></div>
     <span class="cena-onde">Novembro–Dezembro de 1537 · Mar Vermelho · Moca</span>
-    <p>Saem de <button class="ficha" data-f="arquico">Arquico</button> uma hora antes de amanhecer, com bom vento e com o ouro a bordo.</p>
     <p>Ao fim da tarde aparecem três barcos ao largo.</p>
-    <p>Ninguém se assusta. Aquilo é rota de mercadores. Vão a eles a remo, para ver o que trazem.</p>
+    <p>Ninguém se assusta. Aquilo é rota de mercadores, e mercadores é o que ali costuma haver. Vão a eles a remo, para ver o que trazem.</p>
     <p>E a certa altura alguém repara na remada.</p>
     <p>Barco de mercadores rema como pode. Aquilo rema todo ao mesmo tempo.</p>
-    <p>São turcos, e são galeotas de guerra, e estão a barlavento — o vento está do lado deles e não há para onde fugir.</p>
+    <p>São turcos, são galeotas de guerra, e o vento está do lado deles.</p>
     <p>Fogem à mesma. Não chega.</p>
-    <p>À distância de um tiro descarregam a artilharia toda de uma vez, e a fusta onde ele vai deixa de ser uma embarcação e passa a ser um sítio onde há nove mortos e vinte e seis homens no chão.</p>
-    <p>O que se passa a seguir dura menos de uma hora.</p>
-    <p>Os que ainda se aguentam de pé abordam a galeota do capitão turco e limpam-na de proa a popa. Vinte e sete <button class="trad" data-g="soldados de infantaria do exército otomano">janízaros</button> mortos. Durante alguns minutos aquilo é uma vitória.</p>
+    <p>À distância de um tiro descarregam a artilharia toda de uma vez, e a fusta onde ele vai deixa de ser uma embarcação e passa a ser um sítio com nove mortos e vinte e seis homens no chão.</p>
+    <p>O resto dura menos de uma hora.</p>
+    <p>Os que ainda se aguentam de pé abordam a galeota do capitão turco e limpam-na de proa a popa. Vinte e sete <button class="trad" data-g="soldados de infantaria do exército otomano">janízaros</button> mortos. Durante uns minutos aquilo é uma vitória.</p>
     <p>Depois chegam as outras duas e despejam quarenta homens lá dentro.</p>
     <p>De cinquenta e quatro portugueses ficam onze.</p>
-    <p>Ele é um dos onze, e não conta como. Não diz onde estava, nem o que fez, nem se pegou em alguma coisa. Cinquenta e quatro homens entraram naquilo e onze saíram, e um deles é o rapaz de Montemor.</p>
-    <p>Dois morrem no dia seguinte. Cortam-nos em quartos e levam os pedaços pendurados nas pontas das vergas até à cidade, como se leva peixe grande.</p>
-    <p>Em <button class="ficha" data-f="moca">Moca</button> está meia cidade na praça à espera de dar os parabéns ao capitão turco, que é genro de um homem dali.</p>
-    <p>Os nove desembarcam presos por uma só corrente e levam-nos pela cidade inteira, em triunfo, com tambores.</p>
-    <p>Das janelas atiram-lhes panelas de urina. O pregador da cidade tinha dito que quem insultasse cristãos ganhava perdão dos pecados, e a cidade levou aquilo a sério.</p>
-    <p>Metem-nos numa masmorra debaixo do chão. Ficam lá dezassete dias, com um punhado de farinha de cevada por dia.</p>
-    <p>Ao fim, dois amanhecem mortos: Nuno Delgado e André Borges, feridos na cabeça e sem ninguém que lhes tratasse disso. Arrastam-nos pela cidade amarrados pelos pés, com rapazes atrás a apedrejá-los, e lançam-nos ao mar.</p>
+    <p>Ele é um dos onze. Não diz como. Não diz onde estava, nem o que fez, nem se pegou em alguma coisa — e é o único combate deste livro em que não se põe a si próprio em lado nenhum.</p>
+    <p>Cinquenta e quatro entraram. Onze saíram.</p>
+    <p>Dois morrem no dia seguinte. Cortam-nos em quartos e levam os pedaços pendurados nas vergas até à cidade, como se leva peixe grande.</p>
+    <p>Em <button class="ficha" data-f="moca">Moca</button> está meia cidade na praça à espera de dar os parabéns ao capitão turco.</p>
+    <p>Os nove desembarcam presos por uma só corrente e levam-nos pela cidade inteira, com tambores.</p>
+    <p>Das janelas atiram-lhes panelas de urina. O pregador tinha dito que quem insultasse cristãos ganhava perdão dos pecados, e a cidade levou aquilo a sério.</p>
+    <p>Metem-nos num buraco debaixo do chão. Dezassete dias, um punhado de farinha de cevada por dia.</p>
+    <p>Ao fim, dois amanhecem mortos. Chamavam-se Nuno Delgado e André Borges e tinham feridas na cabeça que ninguém tratou. Arrastam-nos pela cidade amarrados pelos pés e lançam-nos ao mar.</p>
     <p>Sobram sete.</p>
     <p>E chegamos ao pátio que já viste no princípio deste livro.</p>
-    <p>Põem-nos à venda numa praça, com a cidade toda à volta. O primeiro que o pregoeiro pega pela mão para começar é ele.</p>
+    <p>Põem-nos à venda numa praça. O primeiro que o pregoeiro pega pela mão é ele.</p>
     <p>O leilão não chega ao fim.</p>
     <p>O pregador da cidade quer os sete de graça, para os levar a Meca e não chegar lá de mãos vazias. Um capitão de soldados diz-lhe que não — que aqueles homens custaram vidas, e que quem quer dar esmolas dá do que é seu. E aponta-lhe para a roupa: a dele está suja de sangue, a do pregador está limpa.</p>
-    <p>A discussão passa a briga, e a briga passa a outra coisa.</p>
-    <p>Morrem mais de seiscentas pessoas. Saqueia-se meia cidade. O pregador acaba feito em quartos e lançado ao mar com as sete mulheres e os nove filhos.</p>
-    <p>E os sete portugueses, que estavam ali no meio à venda, fazem a única coisa sensata que se pode fazer numa cidade a arder: <strong>voltam sozinhos para a masmorra.</strong></p>
-    <p>Ninguém os leva. Ninguém dá por eles. Vão por si próprios, batem à porta, e ele escreve que o carcereiro, ao deixá-los entrar, não lhes fez pequena mercê.</p>
+    <p>A discussão passa a briga. A briga passa a outra coisa.</p>
+    <p>Morrem seiscentas pessoas. Arde meia cidade. O pregador acaba feito em quartos, no mar, com as sete mulheres e os nove filhos.</p>
+    <p>E os sete portugueses, que estavam ali no meio à venda, fazem a coisa mais sensata que se pode fazer numa cidade a arder:</p>
+    <p><strong>voltam sozinhos para a masmorra.</strong></p>
+    <p>Ninguém os leva. Ninguém dá por eles. Vão por si próprios, batem à porta, e o carcereiro deixa-os entrar.</p>
     <p>Treze dias depois, com a cidade calma, faz-se o leilão outra vez.</p>
     <p>Compra-o um grego renegado, sobre quem ele escreve uma frase que não escreve sobre mais ninguém em seiscentas páginas: que renegará dele enquanto for vivo.</p>
     <p>Em três meses esteve sete ou oito vezes tentado a envenenar-se. E diz porquê — não para acabar com aquilo, mas <strong>para o outro perder o dinheiro que tinha dado por ele.</strong></p>
-    <p>É a coisa mais dele que há neste livro inteiro. Até para morrer, a conta.</p>
-    <p>Não morre. O grego, avisado pelos vizinhos de que assim vai perder o investimento, vende-o a um judeu chamado Abraão Muça.</p>
-    <p>Vende-o a troco de tâmaras, por doze mil réis.</p>
+    <p>É a coisa mais dele que há neste livro. Até para morrer, a conta.</p>
+    <p>Não morre. O grego, avisado pelos vizinhos de que assim perde o investimento, vende-o a um judeu chamado Abraão Muça.</p>
+    <p>A troco de tâmaras. Doze mil réis.</p>
+  </div>
+  <div class="dado" role="figure">
+    <div class="dado-n">17 vezes</div>
+    <div class="dado-c">vendido como escravo, segundo a conta dele</div>
   </div>
   <div class="passagem novo">
     <p>O judeu negociava tâmaras e não tinha pressa. Levou-o dois meses numa caravana pelo deserto, a pé, com os outros seis, a carregar o que era preciso carregar. Em Ormuz apresentou-o ao capitão da fortaleza como quem apresenta mercadoria com defeito e pede o que consegue.</p>
@@ -1632,15 +1657,24 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   </div>
   <figure class="placa-fig">
     <div class="placa">[ ilustração 4:5 — cap. III ]</div>
-    <figcaption class="placa-leg">Estreito de Malaca · 1539</figcaption>
+    <figcaption class="placa-leg">Moca, Mar Vermelho · 1538</figcaption>
   </figure>
+</section>
+
+<section class="cap" data-cap="5" data-rom="IV" data-ord="4" data-ano="1539" data-local="MALACA · SAMATRA" data-coord="02°N 102°E" data-x="722" data-y="377" data-prog="0.417" data-k="3.0" data-cx="710" data-cy="372">
+  <div class="cap-meta"><span>Capítulo IV</span><span>1539</span><span>Malaca · Samatra</span></div>
+  <span class="numeral">IV</span>
+  <h2>Diplomata ou mercador?</h2>
+  <div class="cap-sub">1539 · Malaca · rios de Samatra · Aarú</div>
+  <div class="cena">
+  </div>
   <div class="passagem novo">
     <p>Ficou em Ormuz o tempo de se pôr de pé. Depois arranjou lugar num barco que ia para leste, e para leste é o Índico inteiro: a costa da Índia, o Ceilão, o estreito. Sete meses a comer arroz e a dormir em cima de fardos. Quando desembarca em Malaca tem vinte e nove anos e a mesma roupa com que saiu de Ormuz.</p>
   </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">4</span><span class="cena-t">O estreito</span></div>
+    <div class="cena-cab"><span class="cena-n">1</span><span class="cena-t">O estreito</span></div>
     <span class="cena-onde">1539 · Malaca</span>
-    <p><button class="ficha" data-f="malaca">Malaca</button> não faz sentido nenhum até se olhar para um mapa. Depois faz todo.</p>
+    <p class="abre"><button class="ficha" data-f="malaca">Malaca</button> não faz sentido nenhum até se olhar para um mapa. Depois faz todo.</p>
     <p>É uma cidade encostada a um estreito com sessenta e cinco quilómetros de largura no ponto mais apertado, e por esse funil passa tudo o que vai da China e do Japão para a Índia e para a Europa, e tudo o que vem no sentido contrário.</p>
     <p>Quem manda ali cobra portagem ao mundo.</p>
     <p>Os portugueses tomaram-na em 1511 e desde então governam-na do alto de uma fortaleza enorme, com a certeza nervosa de quem sabe que são oitocentos rodeados de cem mil.</p>
@@ -1657,7 +1691,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>É a cidade mais rica em que ele alguma vez esteve, e ele está lá porque deve dinheiro.</p>
   </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">5</span><span class="cena-t">O capitão precisa de olhos</span></div>
+    <div class="cena-cab"><span class="cena-n">2</span><span class="cena-t">O capitão precisa de olhos</span></div>
     <p><button class="ficha" data-f="pero-de-faria">Pero de Faria</button> é capitão de Malaca pela segunda vez, e a segunda vez é sempre mais difícil do que a primeira, porque já se sabe o que corre mal.</p>
     <p>O que corre mal é <button class="ficha" data-f="achem">Achém</button>.</p>
     <p>A norte de Samatra há um sultanato a crescer depressa, com dinheiro do Mar Vermelho, artilharia turca e um sultão que não esconde o que quer — e o que ele quer é Malaca.</p>
@@ -1673,7 +1707,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>Leva uma carta, uma espada de presente, e um lote de pimenta por conta própria — porque o cargo não paga e ninguém finge que paga.</p>
   </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">6</span><span class="cena-t">O rio</span></div>
+    <div class="cena-cab"><span class="cena-n">3</span><span class="cena-t">O rio</span></div>
     <span class="cena-onde">1539 · Rios de Samatra</span>
     <p>A viagem faz-se numa <button class="trad" data-g="embarcação malaia pequena, a remos e vela, usada em rios e navegação costeira. Os portugueses adoptaram-na porque as naus não entravam onde era preciso ir.">lanchara</button>, embarcação malaia pequena, com remos e uma vela, porque as naus portuguesas não entram nos rios.</p>
     <p>Atravessa-se o estreito numa noite. Depois é rio acima, dois dias.</p>
@@ -1690,8 +1724,12 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>É esta a razão pela qual o livro ainda hoje se lê. Não é a aventura.</p>
     <p>É que ele olhava.</p>
   </div>
+  <figure class="placa-fig">
+    <div class="placa">[ ilustração 4:5 — cap. IV ]</div>
+    <figcaption class="placa-leg">Estreito de Malaca · 1539</figcaption>
+  </figure>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">7</span><span class="cena-t">A paciência é a arma</span></div>
+    <div class="cena-cab"><span class="cena-n">4</span><span class="cena-t">A paciência é a arma</span></div>
     <p>A corte dos <button class="ficha" data-f="batas">Batas</button> não se parece nada com o que um português espera de uma corte.</p>
     <p>Não há trono, no sentido em que há tronos na Europa. Há uma casa comprida de madeira, elevada, com telhado de duas águas muito íngremes e a ponta virada para cima, e lá dentro está sentado um homem rodeado de outros homens.</p>
     <p>Come-se antes de se falar de coisa nenhuma.</p>
@@ -1709,7 +1747,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>Um português a admitir isso por escrito, em 1580, é a coisa mais rara deste livro.</p>
   </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">8</span><span class="cena-t">A rainha que espera</span></div>
+    <div class="cena-cab"><span class="cena-n">5</span><span class="cena-t">A rainha que espera</span></div>
     <span class="cena-onde">1539 · Aarú, norte de Samatra</span>
     <p>Enquanto ele anda pelos rios de Samatra, acontece uma coisa a norte que vai ficar mal contada durante quatrocentos anos.</p>
     <p>Achém toma Aarú — um sultanato pequeno da costa nordeste de Samatra, colocado onde interessava. O rei morre a defender a barra. O reino acaba.</p>
@@ -1727,12 +1765,8 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>Foi só um caso que ficou em cima de uma mesa até deixar de ser urgente.</p>
     <p>Guarda esta cena. Daqui a vinte anos vai haver um homem numa antecâmara em Lisboa, com papéis na mão, à espera de uma resposta que não vem — e vai ser ele.</p>
   </div>
-  <div class="dado" role="figure">
-    <div class="dado-n">17 vezes</div>
-    <div class="dado-c">vendido como escravo, segundo a conta dele</div>
-  </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">9</span><span class="cena-t">A linha</span></div>
+    <div class="cena-cab"><span class="cena-n">6</span><span class="cena-t">A linha</span></div>
     <span class="cena-onde">1539 · Regresso a Malaca</span>
     <p>O regresso é onde a história fica desconfortável.</p>
     <p>Porque o mesmo homem que entrega uma carta em nome do rei de Portugal, à saída da audiência vende pimenta por conta própria. E se, no caminho de volta, aparecer um barco carregado e mal defendido, e se esse barco for de muçulmanos, e se ninguém estiver a ver —</p>
@@ -1759,9 +1793,9 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   </div>
 </section>
 
-<section class="cap" data-cap="5" data-rom="IV" data-ord="4" data-ano="1541" data-local="MARTABÃO · MAR DA CHINA" data-coord="16°N 97°E" data-x="696" data-y="296" data-prog="0.455" data-k="2.4" data-cx="750" data-cy="300">
-  <div class="cap-meta"><span>Capítulo IV</span><span>1541</span><span>Martabão · Mar Da China</span></div>
-  <span class="numeral">IV</span>
+<section class="cap" data-cap="6" data-rom="V" data-ord="5" data-ano="1541" data-local="MARTABÃO · MAR DA CHINA" data-coord="16°N 97°E" data-x="696" data-y="296" data-prog="0.5" data-k="2.4" data-cx="750" data-cy="300">
+  <div class="cap-meta"><span>Capítulo V</span><span>1541</span><span>Martabão · Mar Da China</span></div>
+  <span class="numeral">V</span>
   <h2>Bandeira nenhuma</h2>
   <div class="cap-sub">1540–1542 · Martabão · costa da Cochinchina · Calempluy</div>
   <div class="cena">
@@ -1810,7 +1844,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>É a única vez em setecentas páginas que faz isso — descreve o inventário de um saque na terceira pessoa, sem dizer se estava na lista.</p>
   </div>
   <figure class="placa-fig">
-    <div class="placa">[ ilustração 4:5 — cap. IV ]</div>
+    <div class="placa">[ ilustração 4:5 — cap. V ]</div>
     <figcaption class="placa-leg">Golfo de Martabão · 1541</figcaption>
   </figure>
   <div class="cena">
@@ -1875,9 +1909,9 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   </div>
 </section>
 
-<section class="cap" data-cap="6" data-rom="V" data-ord="5" data-ano="1543" data-local="TANEGASHIMA" data-coord="30°N 130°E" data-x="883" data-y="210" data-prog="0.545" data-k="3.6" data-cx="883" data-cy="210">
-  <div class="cap-meta"><span>Capítulo V</span><span>1543</span><span>Tanegashima</span></div>
-  <span class="numeral">V</span>
+<section class="cap" data-cap="7" data-rom="VI" data-ord="6" data-ano="1543" data-local="TANEGASHIMA" data-coord="30°N 130°E" data-x="883" data-y="210" data-prog="0.583" data-k="3.6" data-cx="883" data-cy="210">
+  <div class="cap-meta"><span>Capítulo VI</span><span>1543</span><span>Tanegashima</span></div>
+  <span class="numeral">VI</span>
   <h2>O dia em que a Europa chegou ao Japão</h2>
   <div class="cap-sub">1543 · algures no Mar da China · Tanegashima</div>
   <div class="cena">
@@ -1938,7 +1972,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>É este o primeiro contacto real. Não é o tiro. É meia dúzia de estrangeiros encharcados a tentar comer arroz com dois paus e a falhar, enquanto os anfitriões fingem não reparar.</p>
   </div>
   <figure class="placa-fig">
-    <div class="placa">[ ilustração 4:5 — cap. V ]</div>
+    <div class="placa">[ ilustração 4:5 — cap. VI ]</div>
     <figcaption class="placa-leg">Tanegashima · 1543</figcaption>
   </figure>
   <div class="cena">
@@ -2047,9 +2081,9 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   </div>
 </section>
 
-<section class="cap" data-cap="7" data-rom="V-B" data-ord="6" data-ano="1544" data-local="LIAMPÓ · LÉQUIOS" data-coord="29°N 122°E" data-x="838" data-y="232" data-prog="0.636" data-k="2.8" data-cx="850" data-cy="230">
-  <div class="cap-meta"><span>Capítulo V-B</span><span>1544</span><span>Liampó · Léquios</span></div>
-  <span class="numeral">V-B</span>
+<section class="cap" data-cap="8" data-rom="VII" data-ord="7" data-ano="1544" data-local="LIAMPÓ · LÉQUIOS" data-coord="29°N 122°E" data-x="838" data-y="232" data-prog="0.667" data-k="2.8" data-cx="850" data-cy="230">
+  <div class="cap-meta"><span>Capítulo VII</span><span>1544</span><span>Liampó · Léquios</span></div>
+  <span class="numeral">VII</span>
   <h2>Contra o vento, contra a razão</h2>
   <div class="cap-sub">1543–1544 · Liampó · parcel de Gotom · ilhas dos Léquios</div>
   <div class="cena novo">
@@ -2115,7 +2149,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>Quatro dos seis voltam para trás a mandar parar a gente que vem atrás, e não deixam ninguém tocar-lhes.</p>
   </div>
   <figure class="placa-fig">
-    <div class="placa">[ ilustração 4:5 — cap. V-B ]</div>
+    <div class="placa">[ ilustração 4:5 — cap. VII ]</div>
     <figcaption class="placa-leg">Ilhas dos Léquios · 1544</figcaption>
   </figure>
   <div class="cena novo">
@@ -2198,34 +2232,20 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   </div>
 </section>
 
-<section class="cap" data-cap="8" data-rom="VI" data-ord="7" data-ano="c.1543" data-local="NANQUIM · PEQUIM · O MURO" data-coord="40°N 116°E" data-x="801" data-y="142" data-prog="0.727" data-k="3.0" data-cx="810" data-cy="180">
-  <div class="cap-meta"><span>Capítulo VI</span><span>c.1543</span><span>Nanquim · Pequim · O Muro</span></div>
-  <span class="numeral">VI</span>
+<section class="cap" data-cap="9" data-rom="VIII" data-ord="8" data-ano="c.1543" data-local="NANQUIM · PEQUIM · O MURO" data-coord="40°N 116°E" data-x="801" data-y="142" data-prog="0.75" data-k="3.0" data-cx="810" data-cy="180">
+  <div class="cap-meta"><span>Capítulo VIII</span><span>c.1543</span><span>Nanquim · Pequim · O Muro</span></div>
+  <span class="numeral">VIII</span>
   <h2>Condenado a construir a Grande Muralha</h2>
   <div class="cap-sub">c. 1542–1544 · costa da China · Grande Canal · Nanquim · Pequim · o muro</div>
   <div class="cena">
   </div>
-  <div class="cena">
-    <div class="cena-cab"><span class="cena-n">1</span><span class="cena-t">O que fica na conta</span></div>
-    <span class="cena-onde">c. 1542 · Costa da China</span>
-    <p class="abre">Do naufrágio salvam-se poucos e ele é um deles, o que a esta altura já não surpreende ninguém.</p>
-    <p>Chegam a terra numa praia da costa chinesa, molhados, sem nada, e são apanhados nessa mesma manhã por gente que já sabia que eles vinham.</p>
-    <p>E aqui está a diferença entre a China e todos os outros sítios por onde ele passou.</p>
-    <p>Em Malaca teriam sido vendidos. No Mar Vermelho teriam sido vendidos. Na Birmânia teriam sido mortos ali mesmo, ou postos a trabalhar.</p>
-    <p>Na China levam-nos a um edifício, sentam-nos no chão, e chamam um homem que escreve.</p>
-    <p>Escreve quem são, de onde vieram, em que barco, com quem, e o que traziam.</p>
-    <p>Ninguém lhes bate ainda. Ninguém lhes pergunta ainda o que fizeram.</p>
-    <p>Primeiro faz-se a lista.</p>
-    <p>A partir daqui deixam de estar nas mãos de alguém e passam a estar dentro de uma coisa que não tem mãos nenhumas.</p>
-    <p>Vão ser julgados.</p>
-    <p>Levam três semanas a perceber que é isso que está a acontecer, porque não há em nenhuma das línguas que falam uma palavra que descreva o que os espera.</p>
-    <p>E há a outra parte, que é a que importa e que eles ainda não sabem: aquele processo vai puxar a conta lá para trás.</p>
-    <p>Alguém, algures, vai ligar aqueles europeus molhados a um muro branco numa ilha e a umas sepulturas abertas com barras de ferro.</p>
+  <div class="passagem novo">
+    <p>Do naufrágio salvam-se poucos e ele é um deles, o que a esta altura já não surpreende ninguém. Dão à costa numa praia da China, molhados e sem nada, e são apanhados nessa mesma manhã. Em Malaca teriam sido vendidos. No Mar Vermelho teriam sido vendidos. Aqui levam-nos a um edifício, sentam-nos no chão, e chamam um homem que escreve. Primeiro faz-se a lista. Levam três semanas a perceber que estão a ser julgados, porque não há em nenhuma das línguas que falam uma palavra para aquilo.</p>
   </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">2</span><span class="cena-t">O canal</span></div>
+    <div class="cena-cab"><span class="cena-n">1</span><span class="cena-t">O canal</span></div>
     <span class="cena-onde">c. 1542 · Grande Canal</span>
-    <p>Enquanto a lista sobe de escrivão para escrivão, eles andam.</p>
+    <p class="abre">Enquanto a lista sobe de escrivão para escrivão, eles andam.</p>
     <p>A partir daqui vão de <button class="trad" data-g="colar de tábuas usado como pena pública na China. Pesado, largo, impedia o condenado de alcançar a própria cara. Servia tanto de castigo como de vergonha à vista.">canga</button> ao pescoço — um colar de tábuas, largo como um tampo de mesa, que impede um homem de chegar com as mãos à própria cara.</p>
     <p>E vão de barco, porque a China desloca-se por água.</p>
     <p>O <button class="ficha" data-f="grande-canal">Grande Canal</button> é uma coisa que nenhum europeu daquele século consegue arrumar na cabeça: mil e setecentos quilómetros de canal escavado, com comportas, a ligar o sul rico ao norte que manda. Tem mais tráfego do que qualquer estrada da Europa. Passam-se dias inteiros a ver casas a flutuar. Muitas são <button class="trad" data-g="pequena embarcação chinesa de fundo chato, usada em rios e canais, muitas vezes como casa. Do chinês *san pan*, três tábuas.">sampanas</button> — barcos de fundo chato onde vive uma família inteira que nunca teve chão.</p>
@@ -2241,10 +2261,9 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>Um homem que está preso, de canga ao pescoço, a caminho de ser julgado, come melhor do que alguma vez comeu em Portugal enquanto era livre.</p>
   </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">3</span><span class="cena-t">O papel</span></div>
+    <div class="cena-cab"><span class="cena-n">2</span><span class="cena-t">O papel</span></div>
     <span class="cena-onde">c. 1542 · Nanquim</span>
     <p>Em Nanquim há um tribunal, e a <button class="ficha" data-f="justica-ming">justiça Ming</button> funciona com papel.</p>
-    <p>Isto tem de ser dito devagar, porque é o centro deste capítulo.</p>
     <p>Há um <button class="trad" data-g="grafia portuguesa de época para um alto funcionário provincial chinês, com poderes militares e judiciais. A *Peregrinação* está cheia destes títulos, quase todos deformados de ouvido.">tutão</button> sentado, sim, e há guardas, e há um chão onde se ajoelha. Mas há sobretudo um homem pequeno, sentado de lado, com os dedos manchados de tinta, que escreve tudo.</p>
     <p>Escreve a acusação. Escreve o que os presos respondem. Escreve o que o intérprete diz que eles responderam, e quando o intérprete resume, corrige-o e obriga-o a repetir por inteiro.</p>
     <p>No fim, lê tudo em voz alta.</p>
@@ -2252,65 +2271,42 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>Depois sela o papel. A partir daí aquilo é uma <button class="trad" data-g="documento oficial escrito, ordem ou salvo-conduto. Palavra que os portugueses trouxeram do Oriente e que ficou na língua com outro sentido.">chapa</button> — documento oficial, com valor próprio — e outro homem leva-a para outro sítio, onde vai ser lida por gente que nunca viu ninguém envolvido nisto.</p>
     <p>E há mais: os presos têm direito a alguém que fale por eles, pago pelo tribunal, porque são estrangeiros e pobres. Esse homem apresenta-se, ouve, e argumenta que os réus não sabiam que aquele lugar era sagrado.</p>
     <p>É um argumento fraco. Mas existe, e é feito em voz alta, e fica escrito.</p>
-    <p>Convém ter presente o que isto é, visto de fora. Em Portugal, em 1542, um punhado de estrangeiros apanhado a arrombar túmulos numa igreja estaria enforcado na semana seguinte, e o processo caberia numa folha.</p>
-    <p>Ali levam meses. Há uma primeira instância, há recurso, e o recurso sobe mesmo — para Pequim, para um tribunal acima daquele, que pode desfazer o que este decidiu.</p>
-    <p>Não é um sítio manso. Bate-se em presos com canas, à frente de toda a gente, e bate-se com contabilidade — tantas canadas, escritas antes de serem dadas.</p>
-    <p>As duas coisas são verdade ao mesmo tempo, e ele escreve as duas. É provavelmente a página mais honesta do livro inteiro.</p>
+    <p>Em Portugal, em 1542, um punhado de estrangeiros apanhado a arrombar túmulos estaria enforcado na semana seguinte, e o processo caberia numa folha.</p>
+    <p>Ali levam meses. Há primeira instância, há recurso, e o recurso sobe mesmo — para Pequim, para um tribunal que pode desfazer o que este decidiu.</p>
+    <p>E ao mesmo tempo bate-se em presos com canas, à frente de toda a gente, com contabilidade: tantas canadas, escritas antes de serem dadas.</p>
+    <p>Ele escreve as duas coisas. É provavelmente a página mais honesta do livro.</p>
   </div>
-  <figure class="placa-fig">
-    <div class="placa">[ ilustração 4:5 — cap. VI ]</div>
-    <figcaption class="placa-leg">Grande Canal · c. 1543</figcaption>
-  </figure>
   <div class="cena novo">
-    <div class="cena-cab"><span class="cena-n">4</span><span class="cena-t">Sampitay</span></div>
+    <div class="cena-cab"><span class="cena-n">3</span><span class="cena-t">Sampitay</span></div>
     <span class="cena-onde">1543 · Sampitay, no Grande Canal</span>
-    <p>Vão a caminho de Pequim, de <button class="trad" data-g="colar de tábuas usado como pena pública na China. Pesado, largo, impedia o condenado de alcançar a própria cara. Servia tanto de castigo como de vergonha à vista.">canga</button> ao pescoço, e param numa cidade chamada <button class="ficha" data-f="sampitay">Sampitay</button> que fica na margem do canal.</p>
+    <p>Param numa cidade chamada <button class="ficha" data-f="sampitay">Sampitay</button>, na margem do canal.</p>
     <p>É uma paragem como as outras. Descarrega-se, carrega-se, e os presos ficam ao sol à espera de que alguém se lembre deles.</p>
     <p>E aproxima-se uma mulher.</p>
     <p>Chinesa, de meia-idade, vestida como as outras da terra. Chega-se ao pé daqueles esfarrapados com tábuas ao pescoço e faz uma coisa que não faz sentido nenhum.</p>
     <p>Arregaça a manga e mostra-lhes o braço.</p>
     <p>Tem uma cruz tatuada na pele.</p>
-    <p>E depois fala. Fala em chinês, que é a língua dela e a única que sabe, e no meio do chinês há duas palavras que aqueles homens percebem, porque são as únicas que não estão em chinês:</p>
-    <p><strong>Inês de Leiria.</strong></p>
-    <p>E logo a seguir mais duas: <strong>Tomé Pires</strong>.</p>
-    <p>Aqui é preciso parar.</p>
-    <p>Tomé Pires era boticário em Lisboa. Percebia de drogas e de especiarias, que na altura era a mesma coisa dita de duas maneiras. Foi para o Oriente por causa disso e escreveu, em Malaca, o primeiro relatório europeu decente sobre a Ásia — um livro que diz que portos há, o que se compra em cada um, por quanto, e quem manda.</p>
-    <p>Um homem prático, de origem modesta, com boa cabeça para números.</p>
-    <p>E em 1517 este boticário foi nomeado <strong>o primeiro embaixador de Portugal na China</strong>.</p>
-    <p>Desembarcou em Cantão com presentes e cartas do rei. Levou quase quatro anos a conseguir subir a Pequim, o que já diz alguma coisa sobre a pressa que havia do outro lado. Chegou em 1521.</p>
-    <p>E chegou no pior mês da história possível.</p>
-    <p>O imperador morre. Fecha tudo. E ao mesmo tempo começam a chegar à corte queixas do sul, porque os portugueses que ficaram em Cantão andaram a fazer o que costumam fazer: um capitão construiu um fortim numa ilha sem pedir licença a ninguém, enforcou lá um marinheiro seu para dar exemplo, proibiu os outros mercadores de vender, e deixou os homens comprarem rapazes e raparigas filhos de gente da terra.</p>
-    <p>Há também, na corte, um rei de Malaca deposto a explicar aos chineses quem foram os homens que lhe tiraram a cidade.</p>
-    <p>A embaixada passa de embaixada a prisão em semanas.</p>
-    <p>Tomé Pires nunca mais saiu da China.</p>
-    <p>O que se sabia até há pouco tempo era que morreu numa cadeia em Cantão, algures a seguir a 1524, e que os papéis todos que escreveu na China se perderam.</p>
-    <p>O que esta mulher diz é outra coisa.</p>
-    <p>Diz que ao pai coube em sorte ser degredado para aquela terra. Diz que ali casou com a mãe dela, que era chinesa e tinha casa e bens seus. Diz que a fez cristã, e que viveram vinte e sete anos juntos.</p>
+    <p>Depois fala. Fala em chinês, que é a língua dela e a única que sabe — e no meio do chinês há quatro palavras que aqueles homens percebem, porque são as únicas que não estão em chinês:</p>
+    <p><strong>Inês de Leiria. <button class="ficha" data-f="tome-pires">Tomé Pires</button>.</strong></p>
+    <p>Tomé Pires era boticário em Lisboa e foi o primeiro embaixador de Portugal na China. Chegou a Pequim em 1521, no pior mês possível, e nunca mais saiu do país. Os livros dizem que morreu numa cela em Cantão.</p>
+    <p>Esta mulher diz que não.</p>
+    <p>Diz que o pai foi degredado para ali. Que casou com a mãe dela. Que a fez cristã. Que viveram vinte e sete anos juntos.</p>
     <p>E diz que naquela cidade ficaram mais de trezentos cristãos, que se juntam em casa dela ao domingo.</p>
     <p>Convida-os a ir lá.</p>
-  </div>
-  <div class="cena"><div class="cena-cab"><span class="cena-t">O que faz esta cena diferente de todas as outras</span></div>
-    <p>Em todo o resto deste livro, ele conta e nós duvidamos.</p>
-    <p>Aqui não.</p>
-    <p>Primeiro, porque se mentiu, inventou uma cena que não lhe serve para nada. A mulher não o ajuda a fugir, não muda a história, não volta a ser mencionada. Um mentiroso que inventa não inventa isto.</p>
-    <p>Segundo, porque há uma carta escrita em Cantão em 1524 por outro preso da mesma embaixada, e essa carta diz que as mulheres chinesas dos homens de Tomé Pires foram vendidas como fazenda de traidores. Ou seja: <strong>havia mesmo uma mulher chinesa.</strong></p>
-    <p>Terceiro, e é o que decide.</p>
-    <p>Em 1582, na casinha do Pragal, um homem de setenta e dois anos recebe a visita de uns jesuítas. Falta-lhe um ano de vida. Já tem o livro escrito e guardado, e ninguém o vai ler enquanto ele for vivo.</p>
-    <p>E nessa visita ele faz uma coisa que não fez por mais nada: <strong>põe este episódio por escrito, à parte, numa declaração assinada.</strong></p>
+    <p>Não há maneira de saber se é verdade, e há uma coisa que convém dizer antes de se decidir.</p>
+    <p>Quarenta anos depois, na casinha do Pragal, um velho de setenta e dois anos recebe a visita de uns jesuítas. Falta-lhe um ano de vida e tem o livro escrito e guardado, e ninguém o vai ler enquanto ele for vivo.</p>
+    <p>Nessa visita ele faz uma coisa que não fez por mais nada em seiscentas páginas: <strong>põe este episódio por escrito, à parte, numa declaração assinada.</strong></p>
     <p>Esse papel existe.</p>
-    <p>De seiscentas páginas de coisas que ninguém acredita — a Muralha, o muro, os tártaros, os dezassete cativeiros —, <strong>isto foi a única coisa que ele quis deixar certificada fora do próprio livro.</strong></p>
-    <p>Quem estudou Tomé Pires a sério passou anos com esta passagem, e concluiu que ele estava a dizer a verdade. Que o embaixador não morreu naquela cela. Que foi desterrado para o interior e viveu ali mais quinze ou vinte anos, e morreu por volta de 1540, e que da casa lhe apreenderam papéis escritos.</p>
-    <p>Papéis que se perderam. Quinze anos de um homem que sabia olhar para o mundo e escrever o que via, dentro da China, na altura em que mais ninguém lá entrava.</p>
-    <p>Nada disto está a passar pela cabeça dos homens que estão ali, de tábua ao pescoço.</p>
-    <p>O que eles vêem é uma senhora chinesa que lhes mostrou uma cruz no braço e que os convidou para casa dela, e é a primeira vez em muitos meses que alguém os trata como pessoas.</p>
-    <p>Ela é filha do homem que Portugal mandou à China para abrir uma porta.</p>
-    <p>A porta não abriu. O pai ficou do lado de dentro, e a corda partiu-se atrás dele.</p>
-    <p>Sobrou isto: uma mulher que fala uma língua que o pai mal falava, numa cidade de que Portugal não tinha mapa, a juntar trezentas pessoas em casa ao domingo, à espera de ninguém.</p>
-    <p>Ninguém a foi buscar.</p>
-    <p>Ninguém em Lisboa sabia que ela existia — até este homem voltar e escrever o nome dela.</p>
+    <p>De tudo o que ele contou — a Muralha, os tártaros, os dezassete cativeiros —, isto foi a única coisa que quis deixar certificada fora do próprio livro.</p>
+    <p>Ela é filha do homem que Portugal mandou à China para abrir uma porta. A porta não abriu, o pai ficou do lado de dentro, e a corda partiu-se atrás dele.</p>
+    <p>Sobrou isto: uma mulher que fala uma língua que o pai mal falava, numa cidade de que Portugal não tinha mapa, a juntar trezentas pessoas em casa ao domingo.</p>
+    <p>Ninguém a foi buscar. Ninguém em Lisboa sabia que ela existia — até este homem voltar e escrever o nome dela.</p>
   </div>
+  <figure class="placa-fig">
+    <div class="placa">[ ilustração 4:5 — cap. VIII ]</div>
+    <figcaption class="placa-leg">Grande Canal · c. 1543</figcaption>
+  </figure>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">5</span><span class="cena-t">Onde vão os pobres</span></div>
+    <div class="cena-cab"><span class="cena-n">4</span><span class="cena-t">Onde vão os pobres</span></div>
     <span class="cena-onde">c. 1543 · A caminho de Pequim</span>
     <p>A caminho de Pequim há uma coisa que ele conta devagar, e conta-a melhor do que contou a própria sentença.</p>
     <p>Passam por casas grandes, de porta aberta, onde estão velhos.</p>
@@ -2323,7 +2319,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>E a frase que ele constrói com elas é, para a altura, quase indefensável: que os civilizados eram os outros.</p>
   </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">6</span><span class="cena-t">O muro</span></div>
+    <div class="cena-cab"><span class="cena-n">5</span><span class="cena-t">O muro</span></div>
     <span class="cena-onde">c. 1543 · A muralha, norte</span>
     <p>A <button class="ficha" data-f="grande-muralha">Grande Muralha</button> não é uma muralha.</p>
     <p>São muitos, feitos em séculos diferentes, uns de tijolo e outros só de terra socada entre tábuas, a subir e a descer por cima de montes que já eram difíceis de subir sem nada às costas.</p>
@@ -2348,7 +2344,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <div class="dado-c">de canal escavado à mão, e a Europa não tinha nada parecido</div>
   </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">7</span><span class="cena-t">Vêm do norte</span></div>
+    <div class="cena-cab"><span class="cena-n">6</span><span class="cena-t">Vêm do norte</span></div>
     <p>Começa com fumo.</p>
     <p>Uma torre acende, e a seguinte acende, e a seguinte, e em pouco tempo há uma linha de fumo a correr pelo cimo dos montes mais depressa do que qualquer cavalo.</p>
     <p>Os <button class="ficha" data-f="tartaros">tártaros</button> atravessam onde o muro é de terra.</p>
@@ -2374,9 +2370,9 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   </div>
 </section>
 
-<section class="cap" data-cap="9" data-rom="VII" data-ord="8" data-ano="1552" data-local="JAPÃO · SANCHOÃO" data-coord="22°N 113°E" data-x="781" data-y="266" data-prog="0.818" data-k="2.6" data-cx="840" data-cy="238">
-  <div class="cap-meta"><span>Capítulo VII</span><span>1552</span><span>Japão · Sanchoão</span></div>
-  <span class="numeral">VII</span>
+<section class="cap" data-cap="10" data-rom="IX" data-ord="9" data-ano="1552" data-local="JAPÃO · SANCHOÃO" data-coord="22°N 113°E" data-x="781" data-y="266" data-prog="0.833" data-k="2.6" data-cx="840" data-cy="238">
+  <div class="cap-meta"><span>Capítulo IX</span><span>1552</span><span>Japão · Sanchoão</span></div>
+  <span class="numeral">IX</span>
   <h2>O pirata e o santo</h2>
   <div class="cap-sub">1549–1552 · Malaca · Kagoshima · Yamaguchi · Sanchoão</div>
   <div class="cena">
@@ -2396,19 +2392,11 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>O santo vai à boleia. Não é ele que manda.</p>
     <p>Chegam a Kagoshima a quinze de Agosto, dia de Nossa Senhora, o que Xavier regista como sinal e que era, também, quando o vento deixou.</p>
   </div>
-  <div class="cena">
-    <div class="cena-cab"><span class="cena-n">2</span><span class="cena-t">O homem que fugiu</span></div>
-    <p>Nada disto acontece sem o <button class="ficha" data-f="anjir">Anjirō</button>.</p>
-    <p>Anjirō é japonês, de Kagoshima, e conhece Xavier em Malaca dois anos antes. É ele quem convence o padre de que o Japão vale a viagem, é ele quem serve de intérprete, e é ele o primeiro japonês baptizado da história.</p>
-    <p>Também é ele quem tinha fugido do Japão porque matou um homem.</p>
-    <p>Isto não é acusação nenhuma. É o que ele próprio conta, e conta-o logo, e é por isso que estava num barco português a caminho de sítio nenhum quando o padre aparece.</p>
-    <p>Vale a pena ver a cadeia inteira, porque é absurda e é verdadeira: a evangelização do Japão começa porque um homem cometeu um homicídio, fugiu de barco, calhou-lhe encontrar um sacerdote num porto que não era de nenhum dos dois, e esse sacerdote resolveu acreditar nele.</p>
-    <p>Anjirō passa dois anos em Goa a aprender português e doutrina. Não aprende bem. Ninguém em Goa fala japonês, portanto ninguém consegue verificar o que ele percebeu.</p>
-    <p>Quando desembarcam em Kagoshima, Anjirō é a única ponte entre um padre navarro e um país inteiro.</p>
-    <p>Toda a coisa assenta em cima da cabeça de um fugitivo.</p>
+  <div class="passagem novo">
+    <p>Nada disto acontece sem o <button class="ficha" data-f="anjir">Anjirō</button>. É japonês de Kagoshima, fugiu do Japão porque matou um homem, e foi ele quem convenceu Xavier de que aquela viagem valia a pena. Passou dois anos em Goa a aprender português e doutrina, e não aprendeu bem — ninguém em Goa falava japonês, portanto ninguém podia verificar o que ele tinha percebido. Quando desembarcam em Kagoshima, é a única ponte entre um padre navarro e um país inteiro. A evangelização do Japão assenta em cima da cabeça de um fugitivo.</p>
   </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">3</span><span class="cena-t">A palavra errada</span></div>
+    <div class="cena-cab"><span class="cena-n">2</span><span class="cena-t">A palavra errada</span></div>
     <span class="cena-onde">1549–1550 · Kagoshima</span>
     <p>Há um problema que não se vê no primeiro dia e que estraga o primeiro ano.</p>
     <p>Xavier precisa de dizer «Deus». Em japonês não há a palavra, porque não há a coisa — não naquele sentido.</p>
@@ -2422,12 +2410,8 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>É uma decisão de tradutor, tomada por um santo, e é das coisas mais inteligentes que qualquer europeu fez na Ásia nesse século.</p>
     <p>Também tem um custo. A partir daí os bonzos deixam de o achar interessante e passam a achá-lo um problema.</p>
   </div>
-  <figure class="placa-fig">
-    <div class="placa">[ ilustração 4:5 — cap. VII ]</div>
-    <figcaption class="placa-leg">Sanchoão · 1552</figcaption>
-  </figure>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">4</span><span class="cena-t">A caminhada</span></div>
+    <div class="cena-cab"><span class="cena-n">3</span><span class="cena-t">A caminhada</span></div>
     <span class="cena-onde">Dezembro de 1550 · A caminho de Miyako</span>
     <p>Em Dezembro de 1550 decide ir a <button class="ficha" data-f="miyako">Miyako</button> falar com o imperador.</p>
     <p>A ideia é a que qualquer europeu teria: converte-se quem manda e o país vem atrás. Está errada por duas razões que ele ainda não sabe — o imperador não manda em nada, e o país está em guerra consigo próprio há oitenta anos.</p>
@@ -2443,8 +2427,15 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>Fica onze dias.</p>
     <p>Depois faz os setecentos quilómetros outra vez, ao contrário, e é a caminho de casa que percebe o que tem de mudar.</p>
   </div>
+  <figure class="placa-fig">
+    <div class="placa">[ ilustração 4:5 — cap. IX ]</div>
+    <figcaption class="placa-leg">Sanchoão · 1552</figcaption>
+  </figure>
+  <div class="passagem novo">
+    <p>Chegam a Miyako e não conseguem falar com ninguém. A cidade está meia destruída por causa da guerra, o imperador não recebe, e ao fim de onze dias vão-se embora. Xavier percebe ali uma coisa que muda o resto: naquele país, quem manda não é quem tem o título. É quem tem terra e homens. Volta para trás e vai bater à porta de um senhor de província.</p>
+  </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">5</span><span class="cena-t">Duas vezes em Yamaguchi</span></div>
+    <div class="cena-cab"><span class="cena-n">4</span><span class="cena-t">Duas vezes em Yamaguchi</span></div>
     <span class="cena-onde">1551 · Yamaguchi</span>
     <p><button class="ficha" data-f="yamaguchi">Yamaguchi</button> é uma cidade grande do oeste, rica, com um senhor poderoso e ruas a sério.</p>
     <p>Xavier chega lá a primeira vez como se deve chegar a um sítio quando se prega pobreza: a pé, com a roupa gasta, sujo da estrada, com dois companheiros no mesmo estado.</p>
@@ -2464,7 +2455,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>Xavier percebe isso e muda. Poucos europeus daquele século mudaram alguma coisa depois de a Ásia lhes explicar.</p>
   </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">6</span><span class="cena-t">A mesa</span></div>
+    <div class="cena-cab"><span class="cena-n">5</span><span class="cena-t">A mesa</span></div>
     <span class="cena-onde">1551 · Japão → Índia</span>
     <p>O Fernão entra nesta história aqui, e desta vez entra a sério, porque há cartas de outra gente que o confirmam.</p>
     <p>Encontram-se no Japão e voltam juntos para o sul, e durante algumas semanas partilham navio, casa e refeições.</p>
@@ -2475,32 +2466,28 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>Um homem que passou a vida a somar e a perder fortunas conhece um padre doente que não tem nada e decide financiá-lo.</p>
     <p>A <em>Peregrinação</em> fala de Xavier sem uma única ironia. Em setecentas páginas de desconfiança sistemática, é a única pessoa de quem o autor nunca duvida.</p>
   </div>
-  <div class="cena">
-    <div class="cena-cab"><span class="cena-n">7</span><span class="cena-t">Sanchoão</span></div>
-    <span class="cena-onde">1552 · Sanchoão</span>
-    <p>O último plano de Xavier é entrar na China.</p>
-    <p>A China está fechada. Entrar sem licença é crime, e o crime é dos dois lados — de quem entra e de quem transporta.</p>
-    <p>Ele fica à espera numa ilha chamada <button class="ficha" data-f="sanchoao">Sanchoão</button>, ao largo da costa, onde os portugueses fazem comércio ilegal em barracas de palha que montam e desmontam conforme a estação.</p>
-    <p>Combina com um chinês que o passe. Paga adiantado.</p>
-    <p>O chinês não aparece.</p>
-    <p>Os mercadores portugueses vão-se embora com a monção, porque é o que os mercadores fazem.</p>
-    <p>Ele fica.</p>
-    <p>Adoece em Novembro. Febre. Numa cabana de ramos e palha, à beira-mar, em Dezembro, no Inverno da costa da China.</p>
-    <p>Fica com ele um rapaz chinês do colégio de Goa, e mais ninguém.</p>
-    <p>Morre a três de Dezembro de 1552, com quarenta e seis anos, a olhar para uma costa onde nunca chegou a pôr o pé.</p>
-    <p>Enterram-no ali mesmo, com cal por cima, para poderem levar os ossos mais tarde.</p>
-  </div>
   <div class="dado" role="figure">
     <div class="dado-n">70 anos</div>
     <div class="dado-c">entre morrer sozinho numa praia e ser feito santo</div>
   </div>
   <div class="cena">
-    <div class="cena-cab"><span class="cena-n">8</span><span class="cena-t">O que se leva de um homem</span></div>
-    <span class="cena-onde">1553–1554 · Malaca · Goa</span>
+    <div class="cena-cab"><span class="cena-n">6</span><span class="cena-t">Sanchoão</span></div>
+    <span class="cena-onde">1552–1554 · Sanchoão · Malaca · Goa</span>
+    <p>O último plano de Xavier é entrar na China.</p>
+    <p>A China está fechada. Entrar sem licença é crime, e o crime é dos dois lados — de quem entra e de quem transporta.</p>
+    <p>Fica à espera numa ilha chamada <button class="ficha" data-f="sanchoao">Sanchoão</button>, ao largo da costa, onde os portugueses fazem comércio ilegal em barracas de palha que montam e desmontam conforme a estação.</p>
+    <p>Combina com um chinês que o passe. Paga adiantado.</p>
+    <p>O chinês não aparece.</p>
+    <p>Os mercadores portugueses vão-se embora com a monção, porque é o que os mercadores fazem.</p>
+    <p>Ele fica.</p>
+    <p>Adoece em Novembro. Febre. Numa cabana de ramos e palha, à beira-mar, no Inverno da costa da China.</p>
+    <p>Fica com ele um rapaz chinês do colégio de Goa, e mais ninguém.</p>
+    <p>Morre a três de Dezembro de 1552, com quarenta e seis anos, a olhar para uma costa onde nunca chegou a pôr o pé.</p>
+    <p>Enterram-no ali mesmo, com cal por cima, para poderem levar os ossos mais tarde.</p>
     <p>A cal não funcionou como esperavam.</p>
     <p>Quando abrem a cova, meses depois, o corpo está inteiro. Levam-no para Malaca. Depois para Goa, onde ainda está, dentro de vidro, numa igreja onde se pode ir ver.</p>
     <p>Em 1614 cortam-lhe o braço direito e mandam-no para Roma, porque foi o braço que baptizou.</p>
-    <p>É canonizado em 1622, junto com Inácio de Loiola, setenta anos depois de ter morrido sozinho numa praia à espera de uma boleia que não veio.</p>
+    <p>É canonizado em 1622, setenta anos depois de ter morrido sozinho numa praia à espera de uma boleia que não veio.</p>
     <p>E há a outra consequência, mais pequena, que é a que interessa a este livro.</p>
     <p>Dois anos depois de Xavier morrer, um homem de quarenta e poucos anos apresenta-se em Goa e pede para entrar na <button class="ficha" data-f="companhia-de-jesus">Companhia de Jesus</button>.</p>
     <p>Não tem estudos. Não tem latim. Tem uma fortuna feita de coisas que os jesuítas preferem não examinar de perto.</p>
@@ -2519,9 +2506,9 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   </div>
 </section>
 
-<section class="cap" data-cap="10" data-rom="VIII" data-ord="9" data-ano="1554" data-local="GOA · JAPÃO" data-coord="15°N 74°E" data-x="563" data-y="302" data-prog="0.909" data-k="2.4" data-cx="700" data-cy="260">
-  <div class="cap-meta"><span>Capítulo VIII</span><span>1554</span><span>Goa · Japão</span></div>
-  <span class="numeral">VIII</span>
+<section class="cap" data-cap="11" data-rom="X" data-ord="10" data-ano="1554" data-local="GOA · JAPÃO" data-coord="15°N 74°E" data-x="563" data-y="302" data-prog="0.917" data-k="2.4" data-cx="700" data-cy="260">
+  <div class="cap-meta"><span>Capítulo X</span><span>1554</span><span>Goa · Japão</span></div>
+  <span class="numeral">X</span>
   <h2>Dá tudo o que tem</h2>
   <div class="cap-sub">1554–1557 · Goa · Japão · Goa</div>
   <div class="cena">
@@ -2572,7 +2559,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>Ele responde com uma abundância que mais tarde vai encher setecentas páginas.</p>
   </div>
   <figure class="placa-fig">
-    <div class="placa">[ ilustração 4:5 — cap. VIII ]</div>
+    <div class="placa">[ ilustração 4:5 — cap. X ]</div>
     <figcaption class="placa-leg">Goa · 1554</figcaption>
   </figure>
   <div class="cena">
@@ -2644,9 +2631,9 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
   </div>
 </section>
 
-<section class="cap" data-cap="11" data-rom="IX" data-ord="10" data-ano="1583" data-local="PRAGAL · ALMADA" data-coord="38°N 09°O" data-x="100" data-y="155" data-prog="1.0" data-k="3.6" data-cx="100" data-cy="158">
-  <div class="cap-meta"><span>Capítulo IX</span><span>1583</span><span>Pragal · Almada</span></div>
-  <span class="numeral">IX</span>
+<section class="cap" data-cap="12" data-rom="XI" data-ord="11" data-ano="1583" data-local="PRAGAL · ALMADA" data-coord="38°N 09°O" data-x="100" data-y="155" data-prog="1.0" data-k="3.6" data-cx="100" data-cy="158">
+  <div class="cap-meta"><span>Capítulo XI</span><span>1583</span><span>Pragal · Almada</span></div>
+  <span class="numeral">XI</span>
   <h2>Volta a casa e morre sem saber</h2>
   <div class="cap-sub">1558–1583 · Lisboa · Pragal, Almada · e depois 1614</div>
   <div class="cena">
@@ -2696,7 +2683,7 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     <p>Ao fim dos quatro anos desiste, atravessa o rio e não volta.</p>
   </div>
   <figure class="placa-fig">
-    <div class="placa">[ ilustração 4:5 — cap. IX ]</div>
+    <div class="placa">[ ilustração 4:5 — cap. XI ]</div>
     <figcaption class="placa-leg">Pragal, Almada · 1583</figcaption>
   </figure>
   <div class="cena">
@@ -3448,34 +3435,6 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     "rot": "✅ Existe",
     "txt": "<p>Cidade da actual Malásia, no ponto mais estreito do estreito com o mesmo nome.</p><p>Tomada por Afonso de Albuquerque em 1511, ao sultanato de Malaca. Foi a peça mais valiosa do império português no Oriente e a mais difícil de segurar — sofreu ataques praticamente contínuos durante 130 anos.</p><p>Perdida para os holandeses em 1641.</p><p>Ainda hoje se vê lá arquitectura portuguesa, e existe uma comunidade de descendentes que fala <em>papiá kristang</em>, um crioulo de base portuguesa com quinhentos anos.</p>"
   },
-  "pero-de-faria": {
-    "tipo": "Pessoa",
-    "titulo": "Pero de Faria",
-    "selo": "v",
-    "rot": "✅ Existiu",
-    "txt": "<p>Fidalgo português, capitão de Malaca em dois mandatos — o segundo a partir de 1539.</p><p>É o patrão de Fernão Mendes Pinto durante os anos de Samatra e é ele quem o usa como enviado. Aparece muitas vezes na <em>Peregrinação</em> e a sua existência está bem documentada.</p><p><strong>O que lhe aconteceu depois:</strong> cumpriu o mandato, geriu comércio privado como todos os capitães, e desapareceu dos registos sem escândalo. Um homem que fez carreira normal num sítio anormal.</p>"
-  },
-  "achem": {
-    "tipo": "Lugar",
-    "titulo": "Achém",
-    "selo": "v",
-    "rot": "✅ Existiu",
-    "txt": "<p>Sultanato no extremo norte da ilha de Samatra, em ascensão rápida a partir de 1530.</p><p>Rico, militarizado, com artilharia comprada aos otomanos e ligações comerciais ao Mar Vermelho que contornavam o bloqueio português. Era a grande potência regional rival de Malaca.</p><p>Atacou Malaca várias vezes ao longo do século XVI. Nunca a tomou.</p><p>Hoje é a província indonésia de Achém, a mais conservadora do país e a única que aplica lei islâmica.</p>"
-  },
-  "rainha-de-aaru": {
-    "tipo": "Pessoa",
-    "titulo": "Rainha de Aarú",
-    "selo": "v",
-    "rot": "✅ Existiu",
-    "txt": "<p>Viúva do rei de Aarú, pequeno sultanato no nordeste de Samatra, destruído por Achém por volta de 1539.</p><p>Foi a Malaca reclamar o auxílio previsto na aliança com Portugal, foi recebida com honras, e nunca obteve socorro. Segundo a <em>Peregrinação</em>, esperou perto de dois anos e empobreceu à espera.</p><p>Acabou por casar com o senhor de Bintão, inimigo declarado de Malaca, e passou a agir contra os portugueses.</p><p>O território de Aarú corresponde hoje à zona de Deli, em torno de Medan, na Samatra do Norte. Não sobreviveu como entidade política.</p><p><strong>O que lhe aconteceu depois:</strong> desaparece dos registos. A existência de um reino de Aarú aliado e destruído por Achém nesta data está documentada; os pormenores da estada dela em Malaca só existem no livro.</p><p>Fernão Mendes Pinto dá-lhe mais páginas e mais dignidade do que dá a quase todos os portugueses do livro. É a única mulher com poder político em setecentas páginas, e é ela que diz em voz alta aquilo que ele passa o livro inteiro a insinuar.</p>"
-  },
-  "batas": {
-    "tipo": "Pessoa",
-    "titulo": "Batas",
-    "selo": "v",
-    "rot": "✅ Existiram",
-    "txt": "<p>Povo do interior montanhoso do norte de Samatra — hoje chamados <em>batak</em>, e ainda hoje vários milhões.</p><p>No século XVI eram um conjunto de reinos e chefias sem unidade política, apanhados entre a expansão de Achém e os interesses portugueses.</p><p>Fernão Mendes Pinto descreve-os com bastante atenção etnográfica e, para a época, invulgarmente pouco desprezo. Muito do que escreveu sobre costumes e organização social bate certo com o que se sabe hoje.</p><p>Também repete a acusação de canibalismo ritual que circulava na região. Essa parte é contestada e provavelmente é propaganda dos vizinhos.</p>"
-  },
   "preste-joao": {
     "tipo": "Lenda",
     "titulo": "Preste João",
@@ -3510,6 +3469,27 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     "selo": "v",
     "rot": "✅ Verídico",
     "txt": "<p>Ilha à entrada do golfo de Áden, ponto de aguada obrigatório na rota. Tinha cristãos de São Tomé, ali desde muito antes de haver Portugal.</p>"
+  },
+  "pero-de-faria": {
+    "tipo": "Pessoa",
+    "titulo": "Pero de Faria",
+    "selo": "v",
+    "rot": "✅ Existiu",
+    "txt": "<p>Fidalgo português, capitão de Malaca em dois mandatos — o segundo a partir de 1539.</p><p>É o patrão de Fernão Mendes Pinto durante os anos de Samatra e é ele quem o usa como enviado. Aparece muitas vezes na <em>Peregrinação</em> e a sua existência está bem documentada.</p><p><strong>O que lhe aconteceu depois:</strong> cumpriu o mandato, geriu comércio privado como todos os capitães, e desapareceu dos registos sem escândalo. Um homem que fez carreira normal num sítio anormal.</p>"
+  },
+  "achem": {
+    "tipo": "Lugar",
+    "titulo": "Achém",
+    "selo": "v",
+    "rot": "✅ Existiu",
+    "txt": "<p>Sultanato no extremo norte da ilha de Samatra, em ascensão rápida a partir de 1530.</p><p>Rico, militarizado, com artilharia comprada aos otomanos e ligações comerciais ao Mar Vermelho que contornavam o bloqueio português. Era a grande potência regional rival de Malaca.</p><p>Atacou Malaca várias vezes ao longo do século XVI. Nunca a tomou.</p><p>Hoje é a província indonésia de Achém, a mais conservadora do país e a única que aplica lei islâmica.</p>"
+  },
+  "batas": {
+    "tipo": "Pessoa",
+    "titulo": "Batas",
+    "selo": "v",
+    "rot": "✅ Existiram",
+    "txt": "<p>Povo do interior montanhoso do norte de Samatra — hoje chamados <em>batak</em>, e ainda hoje vários milhões.</p><p>No século XVI eram um conjunto de reinos e chefias sem unidade política, apanhados entre a expansão de Achém e os interesses portugueses.</p><p>Fernão Mendes Pinto descreve-os com bastante atenção etnográfica e, para a época, invulgarmente pouco desprezo. Muito do que escreveu sobre costumes e organização social bate certo com o que se sabe hoje.</p><p>Também repete a acusação de canibalismo ritual que circulava na região. Essa parte é contestada e provavelmente é propaganda dos vizinhos.</p>"
   },
   "martabao": {
     "tipo": "Lugar",
@@ -3643,6 +3623,20 @@ mark.marca.tem-txt{background:rgba(227,164,76,.22)}
     "selo": "v",
     "rot": "✅ Existiram",
     "txt": "<p>Nome que os europeus davam, sem grande cuidado, aos povos das estepes a norte da China — no século XVI, sobretudo os mongóis.</p><p>Sob Altan Khan, a confederação mongol atacou repetidamente o norte da China e chegou aos arredores de Pequim em 1550, saqueando os subúrbios durante dias sem que o exército imperial saísse a combatê-los.</p><p><strong>O que lhes aconteceu depois:</strong> Altan Khan acabou a negociar com Pequim um acordo comercial em 1571, que trouxe décadas de paz. Converteu-se ao budismo tibetano e foi ele quem cunhou o título de <em>Dalai Lama</em>.</p><p>O homem que assustou a China acabou a dar nome a uma instituição religiosa que ainda hoje existe.</p>"
+  },
+  "tome-pires": {
+    "tipo": "Pessoa",
+    "titulo": "Tomé Pires",
+    "selo": "v",
+    "rot": "✅ Verídico",
+    "txt": "<p>Boticário em Lisboa, de origem modesta. Escreveu em Malaca o primeiro relatório europeu decente sobre a Ásia — que portos há, o que se compra em cada um, por quanto, e quem manda. Em 1517 foi nomeado o primeiro embaixador de Portugal na China. Levou quase quatro anos a conseguir subir a Pequim e chegou em 1521, no mês em que o imperador morreu. Ao mesmo tempo chegavam à corte queixas do sul: os portugueses de Cantão tinham construído um fortim sem licença, enforcado um marinheiro para dar exemplo, e comprado filhos de gente da terra. A embaixada passou a prisão em semanas. Uma carta escrita em Cantão em 1524 por outro preso da mesma embaixada diz que as mulheres chinesas dos homens de Tomé Pires foram vendidas «como fazenda de traidores».</p>"
+  },
+  "sampitay": {
+    "tipo": "Lugar",
+    "titulo": "Sampitay",
+    "selo": "d",
+    "rot": "❓ Duvidoso",
+    "txt": "<p>Cidade na margem do Grande Canal, identificada com a actual Pi Zhou, na província de Jiangsu. É o único sítio do mundo onde existe uma mulher chamada Inês de Leiria.</p>"
   },
   "francisco-xavier": {
     "tipo": "Pessoa",
