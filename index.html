@@ -1320,6 +1320,24 @@ mark.rev-marca{background:rgba(227,164,76,.22);border-bottom:1px solid #E3A44C;
   padding:.05em 0;cursor:pointer}
 mark.rev-marca.mau{background:rgba(180,64,47,.22);border-bottom-color:#B4402F}
 mark.rev-marca.bom{background:rgba(90,148,128,.22);border-bottom-color:#5A9480}
+
+/* entrada do modo revisao no menu */
+.rev-explica{font-size:14px!important;line-height:1.6!important}
+.rev-liga{display:block;width:100%;margin:.2rem 0 .4rem;padding:.7rem 1rem;
+  background:none;border:1px solid var(--linha);color:var(--papel-fraco);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  cursor:pointer;transition:all .2s}
+.rev-liga:hover{border-color:var(--lanterna);color:var(--lanterna)}
+.rev-liga.on{border-color:var(--lanterna);color:var(--lanterna)}
+
+/* tablet: a caixa de nota maior e com alvos maiores */
+@media (pointer:coarse){
+  .rev-caixa{width:min(26rem,92vw);padding:1rem}
+  .rev-caixa textarea{min-height:6rem;font-size:16px}  /* 16px evita o zoom do iOS */
+  .rev-caixa .rev-bts button{padding:.7rem;font-size:11px}
+  .rev-barra{padding:.85rem 1rem}
+  .rev-barra button{padding:.6rem .9rem}
+}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -3503,6 +3521,11 @@ html[data-leitura="clara"] .hero{
 <div class="indice-veu" id="indiceVeu" aria-hidden="true"></div>
 <aside class="indice" id="indice" aria-hidden="true" role="dialog" aria-label="Índice e sobre o livro">
   <button class="indice-fechar" id="indiceFechar" aria-label="Fechar">✕</button>
+
+  <h3>Notas de leitura</h3>
+  <p class="rev-explica">Se estás a ler para dar opinião, liga isto: selecciona uma frase
+  e podes marcá-la como boa, má, ou deixar um comentário. No fim, um botão copia tudo.</p>
+  <button class="rev-liga" id="revLiga">Ligar modo revisão</button>
 
   <h3>Capítulos</h3>
   
@@ -5907,7 +5930,7 @@ html[data-leitura="clara"] .hero{
   });
 
   /* --- seleccionar texto abre a caixa --- */
-  document.addEventListener('mouseup', function(){
+  function aoSeleccionar(){
     if(!document.body.classList.contains('rev')) return;
     setTimeout(function(){
       var s=getSelection();
@@ -5922,8 +5945,19 @@ html[data-leitura="clara"] .hero{
       var x=Math.min(Math.max(8, r.left), innerWidth-Math.min(368, innerWidth*0.88)-8);
       var y=Math.min(r.bottom+8, innerHeight-260);
       caixa.style.left=x+'px'; caixa.style.top=Math.max(8,y)+'px';
-      caixa.classList.add('on'); txt.focus();
-    }, 10);
+      caixa.classList.add('on');
+      if(!ipad) txt.focus();   /* no tablet o teclado tapava a caixa */
+    }, ipad ? 260 : 10);
+  }
+  /* rato e tablet: no iPad o mouseup nao e fiavel depois de arrastar as pegas */
+  var ipad = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+             (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.platform));
+  document.addEventListener('mouseup', aoSeleccionar);
+  document.addEventListener('touchend', aoSeleccionar);
+  document.addEventListener('selectionchange', function(){
+    if(!ipad) return;
+    clearTimeout(window.__revSel);
+    window.__revSel = setTimeout(aoSeleccionar, 500);
   });
 
   function capDe(no){
@@ -5990,7 +6024,30 @@ html[data-leitura="clara"] .hero{
       .then(function(){ alert('Notas copiadas. Cola num email ou mensagem.'); })
       .catch(function(){ prompt('Copia daqui:', t); });
   });
-  document.getElementById('revSair').addEventListener('click', desligar);
+  document.getElementById('revSair').addEventListener('click', function(){
+    desligar();
+    var b=document.getElementById('revLiga');
+    if(b){ b.textContent='Ligar modo revisão'; b.classList.remove('on'); }
+  });
+
+  /* o mesmo interruptor no menu: em tablet nao ha teclado para o R */
+  var bLiga=document.getElementById('revLiga');
+  if(bLiga){
+    function estado(){
+      var on=document.body.classList.contains('rev');
+      bLiga.textContent = on ? 'Desligar modo revisão' : 'Ligar modo revisão';
+      bLiga.classList.toggle('on', on);
+    }
+    bLiga.addEventListener('click', function(e){
+      e.stopPropagation();
+      document.body.classList.contains('rev') ? desligar() : ligar();
+      estado();
+      var pn=document.getElementById('indice');
+      if(pn){ pn.classList.remove('aberto');
+        var veu=document.getElementById('indiceVeu'); if(veu) veu.classList.remove('aberto'); }
+    });
+    estado();
+  }
 
   function texto(){
     var por={};
